@@ -1,0 +1,10 @@
+.wbdv-lesson-item-active{
+  background-color: #f0f0f0;
+  border-color: #d4d4d4;
+  border-style: solid;
+  border-width: thin;
+}
+
+.nav-link{
+  color: #282c34;
+}

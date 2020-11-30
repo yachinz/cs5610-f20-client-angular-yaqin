@@ -1,0 +1,11 @@
+<ul class="list-group">
+  <li class="list-group-item wbdv-title">
+    Courses
+  </li>
+  <li *ngFor="let course of courses"
+      class="list-group-item">
+    <a class="nav-link" routerLink="/courses/{{course._id}}/modules">
+      {{course.title}}
+    </a>
+  </li>
+</ul>

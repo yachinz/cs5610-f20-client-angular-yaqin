@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+.list-group-item-success {
+  position: relative;
+  display: block;
+  padding: .75rem 1.25rem;
+  background-color: #a8e2ba;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.list-group-item-danger {
+  position: relative;
+  display: block;
+  padding: .75rem 1.25rem;
+  background-color: #f3abab;
+  border: 1px solid rgba(0,0,0,.125);
+}

@@ -1,0 +1,31 @@
+<div>
+  <h5>{{question.question}}
+    <i class="float-right fa fa-check" [hidden]="grading === false || question.correct !== answer"></i>
+    <i class="float-right fa fa-times" [hidden]="grading === false || question.correct === answer"></i>
+  </h5>
+  <div *ngFor="let choice of question.choices" class="list-group">
+    <div [ngClass]="{
+    'list-group-item list-group-item-success': grading === true && question.correct === choice,
+    'list-group-item list-group-item-danger': grading === true && answer === choice && question.correct !== choice,
+    'list-group-item' : grading === false || (answer !== choice && question.correct !== choice)
+  }">
+      <label>
+        <input type="radio"
+               value="{{choice}}"
+               [(ngModel)]="answer"
+               name="{{question._id}}"/>
+        {{choice}}
+      </label>
+      <i class="float-right fa fa-check" [hidden]="grading === false || question.correct !== choice"></i>
+      <i class="float-right fa fa-times" [hidden]="grading === false || question.correct === choice || answer !== choice"></i>
+    </div>
+  </div>
+  <br/>
+  <div>
+    Your answer: {{answer}}
+  </div>
+  <br/>
+  <button class="btn btn-success" (click)="grade()">
+    Grade
+  </button>
+</div>

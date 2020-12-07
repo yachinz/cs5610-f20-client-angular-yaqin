@@ -1,0 +1,36 @@
+<div>
+  <h5>{{question.question}}
+    <i class="float-right fa fa-check" [hidden]="grading === false || question.correct !== answer"></i>
+    <i class="float-right fa fa-times" [hidden]="grading === false || question.correct === answer"></i>
+  </h5>
+  <div [ngClass]= "{
+  'list-group-item list-group-item-success': grading === true && question.correct === 'true',
+'list-group-item list-group-item-danger' : grading === true && answer === 'true' && question.correct === 'false',
+'list-group-item' : grading === false || grading === true && answer === 'false' && question.correct === 'false'}">
+      <input type="radio" [(ngModel)]="answer" id="{{question._id}} + true" name="{{question._id}}" value="true">
+    <label for="{{question._id}} + true">True</label>
+    <i class="fa-pull-right fa fa-check" [hidden]="grading === false ||question.correct === 'false'"></i>
+    <i class="fa-pull-right fa fa-times" [hidden]="grading === false || question.correct === 'true' ||
+    question.correct === 'false' && answer === 'false'"
+    ></i>
+  </div>
+  <div [ngClass]= "{
+'list-group-item list-group-item-success': grading==true && question.correct=='false',
+'list-group-item list-group-item-danger' : grading==true && answer=='false' && question.correct=='true',
+'list-group-item' : grading==false || grading === true && answer === 'true' && question.correct === 'true'}">
+      <input type="radio" [(ngModel)]="answer" id="{{question._id}} + false" name="{{question._id}}" value="false">
+    <label for="{{question._id}} + false">False</label>
+    <i class="fa-pull-right fa fa-check" [hidden] = "grading === false || question.correct === 'true'"></i>
+    <i class="fa-pull-right fa fa-times" [hidden] = "grading === false || question.correct === 'false'||
+                                                  question.correct === 'true' && answer === 'true'"></i>
+  </div>
+  <br/>
+  <div>
+    Your answer: {{answer}}
+  </div>
+  <br/>
+  <button class="btn btn-success" (click)="grade()">
+    Grade
+  </button>
+</div>
+
